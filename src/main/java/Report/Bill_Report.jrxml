@@ -1,0 +1,395 @@
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.0  -->
+<jasperReport name="Bill_Report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="671e9e6c-d680-49df-8d67-db5e7705d2bc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL_Server"/>
+	<parameter name="Parameter_01" class="java.lang.Integer"/>
+	<parameter name="Parameter_02" class="java.lang.Double"/>
+	<parameter name="Parameter_03" class="java.lang.Double"/>
+	<query language="SQL"><![CDATA[SELECT TBV.ID_Boleta_Venta, TU.Nombre_Usuario, TU.Apellido_Usuario, TC.Nombre_Cliente, TC.Apellido_Cliente, TC.Direccion_Cliente, TC.DNI_Cliente, TBV.Fecha_Boleta_Venta, TDBV.Cantidad_Producto, TP.Nombre_Producto, TP.Precio_Producto, TDBV.Subtotal_Detalle_Boleta_Venta, TDBV.Descuento_Detalle_Boleta_Venta, TDBV.IGV_Detalle_Boleta_Venta, TDBV.Total_Detalle_Boleta_Venta FROM Tabla_Detalle_Boleta_Venta TDBV INNER JOIN Tabla_Boleta_Venta TBV ON TDBV.ID_Boleta_Venta = TBV.ID_Boleta_Venta INNER JOIN Tabla_Usuario TU ON TBV.ID_Usuario = TU.ID_Usuario INNER JOIN Tabla_Cliente TC on TBV.ID_Cliente = TC.ID_Cliente INNER JOIN Tabla_Producto TP ON TDBV.ID_Producto = TP.ID_Producto WHERE TBV.ID_Boleta_Venta = $P{Parameter_01}]]></query>
+	<field name="ID_Boleta_Venta" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_boleta_venta"/>
+	</field>
+	<field name="Nombre_Usuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre_Usuario"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre_Usuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_usuario"/>
+	</field>
+	<field name="Apellido_Usuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Apellido_Usuario"/>
+		<property name="com.jaspersoft.studio.field.label" value="Apellido_Usuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_usuario"/>
+	</field>
+	<field name="Nombre_Cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre_Cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre_Cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_cliente"/>
+	</field>
+	<field name="Apellido_Cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Apellido_Cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="Apellido_Cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_cliente"/>
+	</field>
+	<field name="Direccion_Cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Direccion_Cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="Direccion_Cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_cliente"/>
+	</field>
+	<field name="DNI_Cliente" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="DNI_Cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="DNI_Cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_cliente"/>
+	</field>
+	<field name="Fecha_Boleta_Venta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Fecha_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="Fecha_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_boleta_venta"/>
+	</field>
+	<field name="Cantidad_Producto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Cantidad_Producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="Cantidad_Producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_detalle_boleta_venta"/>
+	</field>
+	<field name="Nombre_Producto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre_Producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre_Producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_producto"/>
+	</field>
+	<field name="Precio_Producto" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Precio_Producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="Precio_Producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_producto"/>
+	</field>
+	<field name="Subtotal_Detalle_Boleta_Venta" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Subtotal_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="Subtotal_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_detalle_boleta_venta"/>
+	</field>
+	<field name="Descuento_Detalle_Boleta_Venta" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Descuento_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="Descuento_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_detalle_boleta_venta"/>
+	</field>
+	<field name="IGV_Detalle_Boleta_Venta" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="IGV_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="IGV_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_detalle_boleta_venta"/>
+	</field>
+	<field name="Total_Detalle_Boleta_Venta" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Detalle_Boleta_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tabla_detalle_boleta_venta"/>
+	</field>
+	<variable name="Variable_01" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{Descuento_Detalle_Boleta_Venta}]]></expression>
+	</variable>
+	<variable name="Variable_02" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{IGV_Detalle_Boleta_Venta}]]></expression>
+	</variable>
+	<variable name="Variable_03" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{Total_Detalle_Boleta_Venta}]]></expression>
+	</variable>
+	<group name="ID_Boleta_Venta">
+		<expression><![CDATA[$F{ID_Boleta_Venta}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="80" splitType="Stretch">
+		<element kind="rectangle" uuid="5528e678-f918-400e-a057-fa2da90aaf54" x="0" y="10" width="230" height="30">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="ed9a3dc8-4429-4656-8a20-b778f87f627f" x="0" y="40" width="230" height="15" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="3e79e47d-80cd-4dec-a83f-fc0a6ce1fae7" x="0" y="55" width="230" height="15">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="23892dfa-c747-467d-9d7f-5fa3fba38891" x="355" y="10" width="200" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="5d1df737-39cb-4a75-92ca-cd1e1c9ffe20" x="355" y="30" width="200" height="20" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="26d336e3-9d78-459a-98df-ad093b88505f" x="355" y="50" width="200" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="staticText" uuid="47988721-7066-413c-a804-689d93613acc" x="0" y="40" width="230" height="15" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PC - FACTORY]]></text>
+		</element>
+		<element kind="staticText" uuid="2d7a1dcc-a422-4f43-bc76-e67804682c6b" x="0" y="55" width="230" height="15" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Perú, Lima - Calle los Milanos 161 Santa Anita]]></text>
+		</element>
+		<element kind="staticText" uuid="a8e03ffd-0321-44b0-a6ab-e2f26ed7b7a3" x="355" y="10" width="200" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[R. U. C. 10701919314]]></text>
+		</element>
+		<element kind="staticText" uuid="e1a7a8fb-7822-493f-8b68-8fc4efbebb5a" x="355" y="30" width="200" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[BOLETA DE VENTA]]></text>
+		</element>
+		<element kind="textField" uuid="4364aa5b-0cdb-4d3c-a75d-b39abb0f89e3" x="355" y="50" width="200" height="20" forecolor="#FF0000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA["N° " + $P{Parameter_01}]]></expression>
+		</element>
+		<element kind="image" uuid="62f2f022-23e7-4e9b-a5be-876070f61866" x="0" y="10" width="230" height="30" hImageAlign="Center" vImageAlign="Middle">
+			<expression><![CDATA["https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/1024px-Samsung_Logo.svg.png"]]></expression>
+		</element>
+	</title>
+	<pageHeader height="82" splitType="Stretch">
+		<element kind="rectangle" uuid="628a45e2-a4a1-4cc4-976f-d2f8955058ea" x="0" y="10" width="140" height="20" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="15163a45-cd77-4397-a131-c79c214431e7" x="0" y="30" width="140" height="20" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="efe40276-e3be-4785-81f6-45dddf0e4087" x="0" y="50" width="180" height="20" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="35bfc84a-81f2-4ff9-832d-6858aa154571" x="180" y="50" width="165" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="cfba7552-6a2c-4540-b857-cb378c357e11" x="345" y="50" width="70" height="20" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="9b160569-358d-4d84-a855-401868a4e7f9" x="415" y="50" width="140" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="bd8ee4a8-bc8f-410e-8b96-3b9314ff8881" x="140" y="10" width="415" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="5747c180-3b3d-4671-91b8-e72a1c886413" x="140" y="30" width="415" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="cad1d42e-3897-43f1-9154-b12e96d1b6b1" x="0" y="10" width="140" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Nombres y Apellidos:]]></text>
+		</element>
+		<element kind="staticText" uuid="835c6aff-e510-416a-999d-d2fe2ded734b" x="0" y="30" width="140" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Dirección:]]></text>
+		</element>
+		<element kind="staticText" uuid="bc4b082b-f23e-40e1-bf8c-8823b73ab2f1" x="0" y="50" width="180" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Documento Nacional de Indentidad:]]></text>
+		</element>
+		<element kind="staticText" uuid="6433bcfc-9956-4e2e-812c-d9e446b675be" x="345" y="50" width="70" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Fecha:]]></text>
+		</element>
+		<element kind="textField" uuid="48a91042-43ef-4ee9-9983-7109a82848f8" x="140" y="10" width="415" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{Nombre_Cliente} + " " + $F{Apellido_Cliente}]]></expression>
+		</element>
+		<element kind="textField" uuid="db294275-c784-48e9-bc9f-8cb751fb650f" x="140" y="30" width="415" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{Direccion_Cliente}]]></expression>
+		</element>
+		<element kind="textField" uuid="7312066d-b642-4a12-a17f-169c999a420f" x="180" y="50" width="165" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{DNI_Cliente}]]></expression>
+		</element>
+		<element kind="textField" uuid="510ac405-4474-4095-bc5a-12bbe8ef2d0f" x="415" y="50" width="140" height="20" forecolor="#FF0000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{Fecha_Boleta_Venta}]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="rectangle" uuid="84c8fcd9-ccec-45cc-a739-da85f0921005" x="0" y="0" width="70" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="0bfb8ff3-aec6-4808-88e7-381390e23104" x="70" y="0" width="135" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="df3e643c-0bc5-4ea8-8dfb-32743c2568fe" x="205" y="0" width="70" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="8ff69f8e-b226-4e34-8d11-1fc96b891e63" x="275" y="0" width="70" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="cd38314e-58a9-41ef-9e30-de4d48460601" x="345" y="0" width="70" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="ec024ce0-c1da-41f8-ae3e-436d34a2defa" x="415" y="0" width="70" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="cd8b3651-dea5-4b8c-a6bb-64471826ca20" x="485" y="0" width="70" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="f9724cae-a118-4a6f-9b6e-d237b7f36464" x="0" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Cantidad]]></text>
+		</element>
+		<element kind="staticText" uuid="0025fa3a-0345-4878-b1b9-299a25163739" x="70" y="0" width="134" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Producto]]></text>
+		</element>
+		<element kind="staticText" uuid="4d471256-c2a8-4222-973e-d33c8a291641" x="205" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Precio]]></text>
+		</element>
+		<element kind="staticText" uuid="8e3bb6e3-ec54-46f2-a620-791b10a07f94" x="275" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Subtotal]]></text>
+		</element>
+		<element kind="staticText" uuid="5c047dc4-43ee-4b4e-a0c9-d71ce602048d" x="345" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Descuento]]></text>
+		</element>
+		<element kind="staticText" uuid="9a551b5d-6bf4-4ae6-b724-ffc27559dcd6" x="415" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[IGV]]></text>
+		</element>
+		<element kind="staticText" uuid="790223fb-d9c1-4a0c-a2e5-10878b38f6d1" x="485" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Total]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="rectangle" uuid="1e37da0d-2acd-417b-96a9-9488c755e772" x="0" y="0" width="70" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="rectangle" uuid="4d42e9ba-57a7-4fca-b312-0ddc8b0dea28" x="70" y="0" width="135" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="rectangle" uuid="c20345b6-e0d4-4344-8777-75d656d4903f" x="205" y="0" width="70" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="rectangle" uuid="aac3c68f-08e6-4529-bdf5-51a17f2b13fe" x="275" y="0" width="70" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="rectangle" uuid="60700160-2aaa-42e3-83a0-ebf1d8884cb8" x="345" y="0" width="70" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="rectangle" uuid="e6c8e156-a732-4ca7-ac94-d425b485612c" x="415" y="0" width="70" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="rectangle" uuid="2fd4a2e8-9218-4f06-ba91-821550846827" x="485" y="0" width="70" height="30">
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="d1c8cc5d-4449-4164-aa1b-1392338698b0" x="0" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Cantidad_Producto}]]></expression>
+			</element>
+			<element kind="textField" uuid="3925853b-d608-424e-8f2d-863a1dfeb729" x="70" y="0" width="135" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Nombre_Producto}]]></expression>
+			</element>
+			<element kind="textField" uuid="49097b39-95a0-4674-88d1-bcdc29e4e14d" x="205" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Precio_Producto}]]></expression>
+			</element>
+			<element kind="textField" uuid="d394be34-dcc3-4ccc-81ff-c0710f20f934" x="275" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Subtotal_Detalle_Boleta_Venta}]]></expression>
+			</element>
+			<element kind="textField" uuid="ecc4747c-b4b2-41ad-96e9-81fc00d6f868" x="345" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Descuento_Detalle_Boleta_Venta}]]></expression>
+			</element>
+			<element kind="textField" uuid="714e2c5d-8222-4c58-b281-426392e04a8f" x="415" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{IGV_Detalle_Boleta_Venta}]]></expression>
+			</element>
+			<element kind="textField" uuid="5a9a7a8c-ce1e-444b-8fd7-d3f6d96babdd" x="485" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Total_Detalle_Boleta_Venta}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="48" splitType="Stretch">
+		<element kind="rectangle" uuid="fe2f103e-65ce-4b75-b309-17021cb69378" x="0" y="10" width="345" height="32">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="589c7964-865b-4575-a818-e3222dfefbbf" x="345" y="10" width="70" height="32" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="4aa2a3dc-290a-4c27-a512-a26dd045c3b1" x="415" y="10" width="70" height="32" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="907f082c-3fcf-4fae-9f0b-004172a45e27" x="485" y="10" width="70" height="32" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="6a785977-3eff-4fd4-a1cb-ba89e9461c0d" x="0" y="10" width="345" height="32" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[TOTAL:]]></text>
+		</element>
+		<element kind="textField" uuid="2aaaf1a0-bca3-4a05-9f48-cbda5fe40bc2" x="345" y="10" width="70" height="32" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{Variable_01}]]></expression>
+		</element>
+		<element kind="textField" uuid="112834a8-2554-46b4-aed8-069c8ce5ed7d" x="415" y="10" width="70" height="32" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{Variable_02}]]></expression>
+		</element>
+		<element kind="textField" uuid="ac4a94d1-ea52-4941-a6fd-ea658e16c755" x="485" y="10" width="70" height="32" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{Variable_03}]]></expression>
+		</element>
+	</columnFooter>
+	<pageFooter height="181" splitType="Stretch">
+		<element kind="rectangle" uuid="09fd91e6-4322-4c37-a111-ec3ff6dcf273" x="0" y="10" width="240" height="30">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="2ea8f8b9-d82b-4093-9896-344032f2b962" x="0" y="40" width="240" height="30" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="683b04ab-6233-4281-bd7a-032806b9911c" x="0" y="70" width="240" height="30">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="7fff5201-5541-4951-baab-5064ae271b2b" x="360" y="10" width="95" height="45" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="a0c9b619-16d9-4ff7-95ad-92702127a424" x="360" y="55" width="95" height="45" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="d1371fe9-ff0f-4fff-9e42-8e70b87c8f3e" x="455" y="10" width="100" height="45">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="783da990-03fc-43e4-a0d0-0565f1706194" x="455" y="55" width="100" height="45">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="fc4aeac1-fed9-429d-ad46-7a8de705ffc6" x="0" y="110" width="555" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Desarrollado por: Tec - Samples ©]]></text>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="190fa90f-8796-4b16-990d-d120d267b3b6" x="0" y="140" width="555" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA["Página " +$V{PAGE_NUMBER}+ " de " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="staticText" uuid="73a13c45-3e15-4a3a-9936-41fccf3eeeaa" x="0" y="10" width="240" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Imprenta "KARIBET" E.I.R.L. RUC: 20486792382]]></text>
+		</element>
+		<element kind="staticText" uuid="3fb8bf5a-f441-47d2-bc19-f3bffb223217" x="0" y="40" width="240" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[F.I.: 15.02.2012 N° de Autorización: 0123456789]]></text>
+		</element>
+		<element kind="staticText" uuid="bb16e8bb-77c6-4481-a5f5-d2f6198b2e76" x="0" y="70" width="240" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Serie 002 del 1000 al 2000]]></text>
+		</element>
+		<element kind="staticText" uuid="60029cd1-12f6-4a37-882c-0512c1f7cd47" x="360" y="10" width="95" height="45" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Paga Con:]]></text>
+		</element>
+		<element kind="staticText" uuid="59cd36a8-80fe-4016-ad64-dd2f6397d11f" x="360" y="55" width="95" height="45" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Vuelto:]]></text>
+		</element>
+		<element kind="textField" uuid="3e1ad3d8-dc4b-4cf3-8ae5-3ac229c25ec5" x="455" y="10" width="100" height="45" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{Parameter_02}]]></expression>
+		</element>
+		<element kind="textField" uuid="97159e55-07df-4e93-883d-7209918db7ae" x="455" y="55" width="100" height="45" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{Parameter_03}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="30" splitType="Stretch"/>
+</jasperReport>
