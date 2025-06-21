@@ -221,6 +221,28 @@ FROM
 -- SELECT TBV.ID_Boleta_Venta, TU.Nombre_Usuario, TU.Apellido_Usuario, TC.Nombre_Cliente, TC.Apellido_Cliente, TC.Direccion_Cliente, TC.DNI_Cliente, TBV.Fecha_Boleta_Venta, TDBV.Cantidad_Producto, TP.Nombre_Producto, TP.Precio_Producto, TDBV.Subtotal_Detalle_Boleta_Venta, TDBV.Descuento_Detalle_Boleta_Venta, TDBV.IGV_Detalle_Boleta_Venta, TDBV.Total_Detalle_Boleta_Venta FROM Tabla_Detalle_Boleta_Venta TDBV INNER JOIN Tabla_Boleta_Venta TBV ON TDBV.ID_Boleta_Venta = TBV.ID_Boleta_Venta INNER JOIN Tabla_Usuario TU ON TBV.ID_Usuario = TU.ID_Usuario INNER JOIN Tabla_Cliente TC on TBV.ID_Cliente = TC.ID_Cliente INNER JOIN Tabla_Producto TP ON TDBV.ID_Producto = TP.ID_Producto WHERE TBV.ID_Boleta_Venta = 1;
 -- SELECT Fecha_Boleta_Venta, COUNT(Fecha_Boleta_Venta) AS Sell_Number FROM Tabla_Boleta_Venta WHERE Fecha_Boleta_Venta BETWEEN '21/03/2025' AND '21/03/2025' GROUP BY Fecha_Boleta_Venta;
 
+SELECT TBV.ID_Boleta_Venta,
+	   TU.Nombre_Usuario,
+       TU.Apellido_Usuario,
+       TC.Nombre_Cliente,
+       TC.Apellido_Cliente,
+       TC.Direccion_Cliente,
+       TC.DNI_Cliente,
+       TBV.Fecha_Boleta_Venta,
+       TDBV.Cantidad_Producto,
+       TP.Nombre_Producto,
+       TP.Precio_Producto,
+       TDBV.Subtotal_Detalle_Boleta_Venta,
+       TDBV.Descuento_Detalle_Boleta_Venta,
+       TDBV.IGV_Detalle_Boleta_Venta,
+       TDBV.Total_Detalle_Boleta_Venta
+FROM Tabla_Detalle_Boleta_Venta TDBV
+INNER JOIN Tabla_Boleta_Venta TBV ON TDBV.ID_Boleta_Venta = TBV.ID_Boleta_Venta
+INNER JOIN Tabla_Usuario TU ON TBV.ID_Usuario = TU.ID_Usuario
+INNER JOIN Tabla_Cliente TC on TBV.ID_Cliente = TC.ID_Cliente
+INNER JOIN Tabla_Producto TP ON TDBV.ID_Producto = TP.ID_Producto
+WHERE TBV.ID_Boleta_Venta = 1;
+
 -- LIMPIAR TABLAS
 -- TRUNCATE TABLE Tabla_Tipo_Usuario;
 -- TRUNCATE TABLE Tabla_Usuario;
