@@ -688,6 +688,7 @@ public class InternalFrame_New_Sell extends javax.swing.JInternalFrame {
             }
         });
 
+        Button_03.setBackground(new java.awt.Color(255, 255, 255));
         Button_03.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         Button_03.setIcon(new ImageIcon("src//main//java//Imágenes//Add.png"));
         Button_03.addActionListener(new java.awt.event.ActionListener() {

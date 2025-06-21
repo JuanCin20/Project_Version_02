@@ -1,7 +1,7 @@
-<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.0  -->
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
 <jasperReport name="Bill_Report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="671e9e6c-d680-49df-8d67-db5e7705d2bc">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL_Server"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql_Server"/>
 	<parameter name="Parameter_01" class="java.lang.Integer"/>
 	<parameter name="Parameter_02" class="java.lang.Double"/>
 	<parameter name="Parameter_03" class="java.lang.Double"/>
@@ -123,7 +123,7 @@
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 		</element>
 		<element kind="staticText" uuid="47988721-7066-413c-a804-689d93613acc" x="0" y="40" width="230" height="15" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[PC - FACTORY]]></text>
+			<text><![CDATA[Gracias Por Su Compra!]]></text>
 		</element>
 		<element kind="staticText" uuid="2d7a1dcc-a422-4f43-bc76-e67804682c6b" x="0" y="55" width="230" height="15" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<text><![CDATA[Perú, Lima - Calle los Milanos 161 Santa Anita]]></text>
@@ -137,8 +137,8 @@
 		<element kind="textField" uuid="4364aa5b-0cdb-4d3c-a75d-b39abb0f89e3" x="355" y="50" width="200" height="20" forecolor="#FF0000" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA["N° " + $P{Parameter_01}]]></expression>
 		</element>
-		<element kind="image" uuid="62f2f022-23e7-4e9b-a5be-876070f61866" x="0" y="10" width="230" height="30" hImageAlign="Center" vImageAlign="Middle">
-			<expression><![CDATA["https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/1024px-Samsung_Logo.svg.png"]]></expression>
+		<element kind="image" uuid="afff70a4-9fc1-44ac-a1fe-b3f5d056ba7d" x="0" y="10" width="230" height="30" hImageAlign="Center" vImageAlign="Middle">
+			<expression><![CDATA["https://storage-asset.msi.com/latam/picture/image/Logo-Pc-Factory.png"]]></expression>
 		</element>
 	</title>
 	<pageHeader height="82" splitType="Stretch">
@@ -187,7 +187,7 @@
 			<text><![CDATA[Fecha:]]></text>
 		</element>
 		<element kind="textField" uuid="48a91042-43ef-4ee9-9983-7109a82848f8" x="140" y="10" width="415" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<expression><![CDATA[$F{Nombre_Cliente} + " " + $F{Apellido_Cliente}]]></expression>
+			<expression><![CDATA[$F{Nombre_Usuario} + " " + $F{Apellido_Usuario}]]></expression>
 		</element>
 		<element kind="textField" uuid="db294275-c784-48e9-bc9f-8cb751fb650f" x="140" y="30" width="415" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$F{Direccion_Cliente}]]></expression>
