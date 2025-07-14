@@ -55,6 +55,8 @@ public class Frame_Employee extends javax.swing.JFrame {
         MenuItem_01 = new javax.swing.JMenuItem();
         Menu_02 = new javax.swing.JMenu();
         MenuItem_02 = new javax.swing.JMenuItem();
+        Menu_03 = new javax.swing.JMenu();
+        MenuItem_03 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -72,15 +74,15 @@ public class Frame_Employee extends javax.swing.JFrame {
 
         MenuBar_01.setPreferredSize(new java.awt.Dimension(1465, 50));
 
-        Menu_01.setIcon(new ImageIcon("src//main//java//Imágenes//Cart.png"));
-        Menu_01.setText("Realizar Pedido");
+        Menu_01.setIcon(new ImageIcon("src//main//java//Imágenes//User_01.png"));
+        Menu_01.setText("Clientes");
         Menu_01.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        Menu_01.setPreferredSize(new java.awt.Dimension(220, 38));
+        Menu_01.setPreferredSize(new java.awt.Dimension(165, 38));
 
         MenuItem_01.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        MenuItem_01.setIcon(new ImageIcon("src//main//java//Imágenes//Cart.png"));
-        MenuItem_01.setText("Realizar Pedido");
-        MenuItem_01.setPreferredSize(new java.awt.Dimension(220, 35));
+        MenuItem_01.setIcon(new ImageIcon("src//main//java//Imágenes//Add.png"));
+        MenuItem_01.setText("Nuevo Cliente");
+        MenuItem_01.setPreferredSize(new java.awt.Dimension(165, 35));
         MenuItem_01.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuItem_01ActionPerformed(evt);
@@ -90,14 +92,14 @@ public class Frame_Employee extends javax.swing.JFrame {
 
         MenuBar_01.add(Menu_01);
 
-        Menu_02.setIcon(new ImageIcon("src//main//java//Imágenes//Log_Out.png"));
-        Menu_02.setText("Cerrar Sesión");
+        Menu_02.setIcon(new ImageIcon("src//main//java//Imágenes//Cart.png"));
+        Menu_02.setText("Realizar Pedido");
         Menu_02.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         Menu_02.setPreferredSize(new java.awt.Dimension(220, 38));
 
         MenuItem_02.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        MenuItem_02.setIcon(new ImageIcon("src//main//java//Imágenes//Log_Out.png"));
-        MenuItem_02.setText("Cerrar Sesión");
+        MenuItem_02.setIcon(new ImageIcon("src//main//java//Imágenes//Cart.png"));
+        MenuItem_02.setText("Realizar Pedido");
         MenuItem_02.setPreferredSize(new java.awt.Dimension(220, 35));
         MenuItem_02.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +109,24 @@ public class Frame_Employee extends javax.swing.JFrame {
         Menu_02.add(MenuItem_02);
 
         MenuBar_01.add(Menu_02);
+
+        Menu_03.setIcon(new ImageIcon("src//main//java//Imágenes//Log_Out.png"));
+        Menu_03.setText("Cerrar Sesión");
+        Menu_03.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        Menu_03.setPreferredSize(new java.awt.Dimension(220, 38));
+
+        MenuItem_03.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        MenuItem_03.setIcon(new ImageIcon("src//main//java//Imágenes//Log_Out.png"));
+        MenuItem_03.setText("Cerrar Sesión");
+        MenuItem_03.setPreferredSize(new java.awt.Dimension(220, 35));
+        MenuItem_03.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItem_03ActionPerformed(evt);
+            }
+        });
+        Menu_03.add(MenuItem_03);
+
+        MenuBar_01.add(Menu_03);
 
         setJMenuBar(MenuBar_01);
 
@@ -124,7 +144,7 @@ public class Frame_Employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuItem_01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_01ActionPerformed
+    private void MenuItem_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_02ActionPerformed
         // TODO add your handling code here:
         InternalFrame_New_Sell Obj_InternalFrame_New_Sell = null;
         try {
@@ -134,14 +154,21 @@ public class Frame_Employee extends javax.swing.JFrame {
         }
         DesktopPane_01.add(Obj_InternalFrame_New_Sell);
         Obj_InternalFrame_New_Sell.setVisible(true);
-    }//GEN-LAST:event_MenuItem_01ActionPerformed
+    }//GEN-LAST:event_MenuItem_02ActionPerformed
 
-    private void MenuItem_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_02ActionPerformed
+    private void MenuItem_03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_03ActionPerformed
         // TODO add your handling code here:
         Frame_Log_In Obj_Frame_Log_In = new Frame_Log_In();
         Obj_Frame_Log_In.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_MenuItem_02ActionPerformed
+    }//GEN-LAST:event_MenuItem_03ActionPerformed
+
+    private void MenuItem_01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_01ActionPerformed
+        // TODO add your handling code here:
+        InternalFrame_New_Customer Obj_InternalFrame_New_Customer = new InternalFrame_New_Customer();
+        DesktopPane_01.add(Obj_InternalFrame_New_Customer);
+        Obj_InternalFrame_New_Customer.setVisible(true);
+    }//GEN-LAST:event_MenuItem_01ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,11 +211,13 @@ public class Frame_Employee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane DesktopPane_01;
+    public static javax.swing.JDesktopPane DesktopPane_01;
     private javax.swing.JMenuBar MenuBar_01;
     private javax.swing.JMenuItem MenuItem_01;
     private javax.swing.JMenuItem MenuItem_02;
+    private javax.swing.JMenuItem MenuItem_03;
     private javax.swing.JMenu Menu_01;
     private javax.swing.JMenu Menu_02;
+    private javax.swing.JMenu Menu_03;
     // End of variables declaration//GEN-END:variables
 }

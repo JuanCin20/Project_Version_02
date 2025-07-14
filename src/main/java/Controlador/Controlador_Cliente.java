@@ -6,9 +6,9 @@ package Controlador;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-// import java.sql.PreparedStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-// import java.sql.Statement;
+import java.sql.Statement;
 import Modelo.Modelo_Cliente;
 import java.sql.SQLException;
 import com.mycompany.project_version_02.MySQL_Connection;
@@ -24,9 +24,43 @@ public class Controlador_Cliente {
 
     private CallableStatement Obj_CallableStatement;
     private Connection Obj_Connection;
-    // private PreparedStatement Obj_PreparedStatement;
+    private PreparedStatement Obj_PreparedStatement;
     private ResultSet Obj_ResultSet;
-    // private Statement Obj_Statement;
+    private Statement Obj_Statement;
+
+    public boolean Insertar_Cliente(Modelo_Cliente Obj_Modelo_Cliente) throws SQLException, ClassNotFoundException {
+        try {
+            String MySql_Command = "INSERT INTO Tabla_Cliente VALUES (?, ?, ?, ?, ?, ?);";
+            Obj_Connection = MySQL_Connection.Function_Connection();
+            Obj_PreparedStatement = Obj_Connection.prepareStatement(MySql_Command);
+            Obj_PreparedStatement.setInt(1, 0);
+            Obj_PreparedStatement.setInt(2, Obj_Modelo_Cliente.getDNI_Cliente());
+            Obj_PreparedStatement.setString(3, Obj_Modelo_Cliente.getNombre_Cliente());
+            Obj_PreparedStatement.setString(4, Obj_Modelo_Cliente.getApellido_Cliente());
+            Obj_PreparedStatement.setString(5, Obj_Modelo_Cliente.getDireccion_Cliente());
+            Obj_PreparedStatement.setString(6, Obj_Modelo_Cliente.getFecha_Nacimiento_Cliente());
+            Obj_PreparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {
+            Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException.getMessage());
+        }
+        return false;
+    }
+
+    public boolean Check_DNI_Cliente(String DNI_Cliente) throws SQLException, ClassNotFoundException {
+        try {
+            String MySql_Command = "SELECT DNI_Cliente FROM Tabla_Cliente WHERE DNI_Cliente = '" + DNI_Cliente + "';";
+            Obj_Connection = MySQL_Connection.Function_Connection();
+            Obj_Statement = Obj_Connection.createStatement();
+            Obj_ResultSet = Obj_Statement.executeQuery(MySql_Command);
+            while (Obj_ResultSet.next() == true) {
+                return true;
+            }
+        } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {
+            Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException.getMessage());
+        }
+        return false;
+    }
 
     public ArrayList<Modelo_Cliente> ArrayList_Modelo_Cliente() throws SQLException, ClassNotFoundException {
         ArrayList<Modelo_Cliente> Obj_ArrayList_Modelo_Cliente = new ArrayList<>();
