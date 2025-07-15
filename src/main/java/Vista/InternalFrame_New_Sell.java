@@ -1093,7 +1093,7 @@ public class InternalFrame_New_Sell extends javax.swing.JInternalFrame {
                         System.err.println("Error al Registrar Los Detalles de la Boleta de Venta.");
                     }
                 }
-                String Report_Path = "src//main//java//Report//Bill_Report.jrxml";
+                String Report_Path = "src//main//java//Report//Receipt_Report.jrxml";
                 JasperReport Obj_JasperReport = JasperCompileManager.compileReport(Report_Path);
                 Map Obj_Map = new HashMap();
                 Obj_Map.put("Parameter_01", Controlador_Boleta_Venta.ID_Boleta_Venta);

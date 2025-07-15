@@ -1,5 +1,5 @@
 <!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
-<jasperReport name="Bill_Report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="671e9e6c-d680-49df-8d67-db5e7705d2bc">
+<jasperReport name="Receipt_Report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="671e9e6c-d680-49df-8d67-db5e7705d2bc">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql_Server"/>
 	<parameter name="Parameter_01" class="java.lang.Integer"/>
@@ -95,50 +95,80 @@
 	</group>
 	<background splitType="Stretch"/>
 	<title height="80" splitType="Stretch">
-		<element kind="rectangle" uuid="5528e678-f918-400e-a057-fa2da90aaf54" x="0" y="10" width="230" height="30">
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		<element kind="rectangle" uuid="30448316-86b4-48ea-9d92-febb04af78de" x="-20" y="-20" width="595" height="100" forecolor="#FFFFFF" backcolor="#212529"/>
+		<element kind="staticText" uuid="68caef9a-6567-40e5-9ddf-2c0600001407" mode="Transparent" x="162" y="0" width="230" height="15" forecolor="#FFC107" backcolor="#FFFFFF" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Boleta de Venta]]></text>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
 		</element>
-		<element kind="rectangle" uuid="ed9a3dc8-4429-4656-8a20-b778f87f627f" x="0" y="40" width="230" height="15" backcolor="#99CCFF">
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		<element kind="staticText" uuid="d726c1f3-f54a-46ac-9431-5a5a57d4fb8d" mode="Transparent" x="162" y="45" width="230" height="15" forecolor="#FFFFFF" backcolor="#FFFFFF" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[U22208295@utp.edu.pe]]></text>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
 		</element>
-		<element kind="rectangle" uuid="3e79e47d-80cd-4dec-a83f-fc0a6ce1fae7" x="0" y="55" width="230" height="15">
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		<element kind="staticText" uuid="ea7f45f7-f6d5-45b7-8b11-06e90568d129" mode="Transparent" x="162" y="15" width="230" height="15" forecolor="#FFFFFF" backcolor="#FFFFFF" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[ Av. Ruiseñores, Los Milanos 161 - Santa Anita]]></text>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
 		</element>
-		<element kind="rectangle" uuid="23892dfa-c747-467d-9d7f-5fa3fba38891" x="355" y="10" width="200" height="20">
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		<element kind="staticText" uuid="c5543c8e-b47c-423f-9fe3-4377387fae4c" mode="Transparent" x="162" y="30" width="230" height="15" forecolor="#FFFFFF" backcolor="#FFFFFF" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[959748008 / 998723316]]></text>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
 		</element>
-		<element kind="rectangle" uuid="5d1df737-39cb-4a75-92ca-cd1e1c9ffe20" x="355" y="30" width="200" height="20" backcolor="#99CCFF">
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		<element kind="staticText" uuid="3e212a0b-82fa-4e26-b965-4abf3d2818a7" mode="Opaque" x="0" y="0" width="140" height="60" forecolor="#030303" backcolor="#FFFFFF">
+			<text><![CDATA[]]></text>
 		</element>
-		<element kind="rectangle" uuid="26d336e3-9d78-459a-98df-ad093b88505f" x="355" y="50" width="200" height="20">
-			<property name="com.jaspersoft.studio.unit.width" value="px"/>
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<property name="com.jaspersoft.studio.unit.x" value="px"/>
-		</element>
-		<element kind="staticText" uuid="47988721-7066-413c-a804-689d93613acc" x="0" y="40" width="230" height="15" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Gracias Por Su Compra!]]></text>
-		</element>
-		<element kind="staticText" uuid="2d7a1dcc-a422-4f43-bc76-e67804682c6b" x="0" y="55" width="230" height="15" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Perú, Lima - Calle los Milanos 161 Santa Anita]]></text>
-		</element>
-		<element kind="staticText" uuid="a8e03ffd-0321-44b0-a6ab-e2f26ed7b7a3" x="355" y="10" width="200" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[R. U. C. 10701919314]]></text>
-		</element>
-		<element kind="staticText" uuid="e1a7a8fb-7822-493f-8b68-8fc4efbebb5a" x="355" y="30" width="200" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[BOLETA DE VENTA]]></text>
-		</element>
-		<element kind="textField" uuid="4364aa5b-0cdb-4d3c-a75d-b39abb0f89e3" x="355" y="50" width="200" height="20" forecolor="#FF0000" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<expression><![CDATA["N° " + $P{Parameter_01}]]></expression>
-		</element>
-		<element kind="image" uuid="afff70a4-9fc1-44ac-a1fe-b3f5d056ba7d" x="0" y="10" width="230" height="30" hImageAlign="Center" vImageAlign="Middle">
+		<element kind="image" uuid="afff70a4-9fc1-44ac-a1fe-b3f5d056ba7d" x="0" y="0" width="140" height="60" hImageAlign="Center" vImageAlign="Middle">
 			<expression><![CDATA["https://storage-asset.msi.com/latam/picture/image/Logo-Pc-Factory.png"]]></expression>
+		</element>
+		<element kind="rectangle" uuid="04abeb9d-6a07-4dfa-a12a-14719dfc56ac" x="415" y="0" width="140" height="20">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="262d6888-352a-4d92-a437-0f4b68e332a1" x="415" y="40" width="140" height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="staticText" uuid="fe97cb75-2f2a-4ae4-8b2d-5f3ab4926072" x="415" y="0" width="140" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[R. U. C. 10701919314]]></text>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="staticText" uuid="0f6a3b1f-f0e7-4da6-98e0-027d65a3378f" x="436" y="20" width="140" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Jaspersoft® Studio]]></text>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="bb629589-c433-4adb-b332-8ffd0e77f77f" x="415" y="20" width="140" height="20" backcolor="#99CCFF">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="staticText" uuid="1074fad1-0678-4062-9bc6-4de0aa427112" x="415" y="20" width="140" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Jaspersoft® Studio]]></text>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="4364aa5b-0cdb-4d3c-a75d-b39abb0f89e3" x="415" y="40" width="140" height="20" forecolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA["N° " + $P{Parameter_01}]]></expression>
 		</element>
 	</title>
 	<pageHeader height="82" splitType="Stretch">
@@ -162,7 +192,7 @@
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
-		<element kind="rectangle" uuid="9b160569-358d-4d84-a855-401868a4e7f9" x="415" y="50" width="140" height="20">
+		<element kind="rectangle" uuid="9b160569-358d-4d84-a855-401868a4e7f9" x="415" y="50" width="140" height="20" backcolor="#212529">
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
@@ -187,7 +217,7 @@
 			<text><![CDATA[Fecha:]]></text>
 		</element>
 		<element kind="textField" uuid="48a91042-43ef-4ee9-9983-7109a82848f8" x="140" y="10" width="415" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<expression><![CDATA[$F{Nombre_Usuario} + " " + $F{Apellido_Usuario}]]></expression>
+			<expression><![CDATA[$F{Nombre_Cliente} + " " + $F{Apellido_Cliente}]]></expression>
 		</element>
 		<element kind="textField" uuid="db294275-c784-48e9-bc9f-8cb751fb650f" x="140" y="30" width="415" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$F{Direccion_Cliente}]]></expression>
@@ -195,7 +225,7 @@
 		<element kind="textField" uuid="7312066d-b642-4a12-a17f-169c999a420f" x="180" y="50" width="165" height="20" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$F{DNI_Cliente}]]></expression>
 		</element>
-		<element kind="textField" uuid="510ac405-4474-4095-bc5a-12bbe8ef2d0f" x="415" y="50" width="140" height="20" forecolor="#FF0000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="510ac405-4474-4095-bc5a-12bbe8ef2d0f" x="415" y="50" width="140" height="20" forecolor="#FFC107" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$F{Fecha_Boleta_Venta}]]></expression>
 		</element>
 	</pageHeader>
@@ -229,25 +259,25 @@
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
 		<element kind="staticText" uuid="f9724cae-a118-4a6f-9b6e-d237b7f36464" x="0" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Cantidad]]></text>
+			<text><![CDATA[Cantidad:]]></text>
 		</element>
 		<element kind="staticText" uuid="0025fa3a-0345-4878-b1b9-299a25163739" x="70" y="0" width="134" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Producto]]></text>
+			<text><![CDATA[Producto:]]></text>
 		</element>
 		<element kind="staticText" uuid="4d471256-c2a8-4222-973e-d33c8a291641" x="205" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Precio]]></text>
+			<text><![CDATA[Precio:]]></text>
 		</element>
 		<element kind="staticText" uuid="8e3bb6e3-ec54-46f2-a620-791b10a07f94" x="275" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Subtotal]]></text>
+			<text><![CDATA[Subtotal:]]></text>
 		</element>
 		<element kind="staticText" uuid="5c047dc4-43ee-4b4e-a0c9-d71ce602048d" x="345" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Descuento]]></text>
+			<text><![CDATA[Descuento:]]></text>
 		</element>
 		<element kind="staticText" uuid="9a551b5d-6bf4-4ae6-b724-ffc27559dcd6" x="415" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[IGV]]></text>
+			<text><![CDATA[IGV:]]></text>
 		</element>
 		<element kind="staticText" uuid="790223fb-d9c1-4a0c-a2e5-10878b38f6d1" x="485" y="0" width="70" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Total]]></text>
+			<text><![CDATA[Total:]]></text>
 		</element>
 	</columnHeader>
 	<detail>
@@ -308,28 +338,28 @@
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
-		<element kind="rectangle" uuid="589c7964-865b-4575-a818-e3222dfefbbf" x="345" y="10" width="70" height="32" backcolor="#99CCFF">
+		<element kind="rectangle" uuid="589c7964-865b-4575-a818-e3222dfefbbf" x="345" y="10" width="70" height="32" backcolor="#212529">
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
-		<element kind="rectangle" uuid="4aa2a3dc-290a-4c27-a512-a26dd045c3b1" x="415" y="10" width="70" height="32" backcolor="#99CCFF">
+		<element kind="rectangle" uuid="4aa2a3dc-290a-4c27-a512-a26dd045c3b1" x="415" y="10" width="70" height="32" backcolor="#212529">
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
-		<element kind="rectangle" uuid="907f082c-3fcf-4fae-9f0b-004172a45e27" x="485" y="10" width="70" height="32" backcolor="#99CCFF">
+		<element kind="rectangle" uuid="907f082c-3fcf-4fae-9f0b-004172a45e27" x="485" y="10" width="70" height="32" backcolor="#212529">
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
 		<element kind="staticText" uuid="6a785977-3eff-4fd4-a1cb-ba89e9461c0d" x="0" y="10" width="345" height="32" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[TOTAL:]]></text>
+			<text><![CDATA[Resumen:]]></text>
 		</element>
-		<element kind="textField" uuid="2aaaf1a0-bca3-4a05-9f48-cbda5fe40bc2" x="345" y="10" width="70" height="32" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="2aaaf1a0-bca3-4a05-9f48-cbda5fe40bc2" x="345" y="10" width="70" height="32" forecolor="#FFC107" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$V{Variable_01}]]></expression>
 		</element>
-		<element kind="textField" uuid="112834a8-2554-46b4-aed8-069c8ce5ed7d" x="415" y="10" width="70" height="32" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="112834a8-2554-46b4-aed8-069c8ce5ed7d" x="415" y="10" width="70" height="32" forecolor="#FFC107" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$V{Variable_02}]]></expression>
 		</element>
-		<element kind="textField" uuid="ac4a94d1-ea52-4941-a6fd-ea658e16c755" x="485" y="10" width="70" height="32" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="ac4a94d1-ea52-4941-a6fd-ea658e16c755" x="485" y="10" width="70" height="32" forecolor="#FFC107" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$V{Variable_03}]]></expression>
 		</element>
 	</columnFooter>
@@ -354,7 +384,7 @@
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
-		<element kind="rectangle" uuid="d1371fe9-ff0f-4fff-9e42-8e70b87c8f3e" x="455" y="10" width="100" height="45">
+		<element kind="rectangle" uuid="d1371fe9-ff0f-4fff-9e42-8e70b87c8f3e" x="455" y="10" width="100" height="45" backcolor="#212529">
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
@@ -384,7 +414,7 @@
 		<element kind="staticText" uuid="59cd36a8-80fe-4016-ad64-dd2f6397d11f" x="360" y="55" width="95" height="45" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<text><![CDATA[Vuelto:]]></text>
 		</element>
-		<element kind="textField" uuid="3e1ad3d8-dc4b-4cf3-8ae5-3ac229c25ec5" x="455" y="10" width="100" height="45" forecolor="#FF0000" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="3e1ad3d8-dc4b-4cf3-8ae5-3ac229c25ec5" x="455" y="10" width="100" height="45" forecolor="#FFC107" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$P{Parameter_02}]]></expression>
 		</element>
 		<element kind="textField" uuid="97159e55-07df-4e93-883d-7209918db7ae" x="455" y="55" width="100" height="45" pattern="00.00" bold="true" hTextAlign="Center" vTextAlign="Middle">
