@@ -10,10 +10,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
-import java.sql.SQLException;
-import java.util.logging.Logger;
-import com.mycompany.project_version_02.MySQL_Connection;
-import java.util.logging.Level;
+import java.util.ArrayList;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.ChartFactory;
@@ -23,7 +20,18 @@ import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.ChartPanel;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.logging.Logger;
+import com.mycompany.project_version_02.MySQL_Connection;
+import java.util.logging.Level;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import java.util.Map;
+import java.util.HashMap;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.JRException;
 
 /**
  *
@@ -57,6 +65,7 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
         DateChooser_02 = new com.toedter.calendar.JDateChooser();
         Panel_02 = new javax.swing.JPanel();
         Button_01 = new javax.swing.JButton();
+        Button_02 = new javax.swing.JButton();
         Panel_03 = new javax.swing.JPanel();
         Label_01 = new javax.swing.JLabel();
 
@@ -112,7 +121,7 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(Panel_01, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        getContentPane().add(Panel_01, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 90));
 
         Panel_02.setBackground(new java.awt.Color(102, 102, 102));
         Panel_02.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -126,24 +135,37 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
             }
         });
 
+        Button_02.setBackground(new java.awt.Color(255, 255, 153));
+        Button_02.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        Button_02.setText("Generar Reporte");
+        Button_02.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_02ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_02Layout = new javax.swing.GroupLayout(Panel_02);
         Panel_02.setLayout(Panel_02Layout);
         Panel_02Layout.setHorizontalGroup(
             Panel_02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_02Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Button_01, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Panel_02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Button_02, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_01, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         Panel_02Layout.setVerticalGroup(
             Panel_02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_02Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Button_01, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Button_01, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Button_02, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        getContentPane().add(Panel_02, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 150, -1));
+        getContentPane().add(Panel_02, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, 90));
 
         Panel_03.setBackground(new java.awt.Color(102, 102, 102));
         Panel_03.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -156,10 +178,10 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
         );
         Panel_03Layout.setVerticalGroup(
             Panel_03Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 414, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Panel_03, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 560, 400));
+        getContentPane().add(Panel_03, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 420));
 
         Label_01.setIcon(new ImageIcon("src//main//java//Imágenes//Wallpaper_04.png"));
         getContentPane().add(Label_01, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 560));
@@ -180,48 +202,103 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Campo Requerido: Fecha Final.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 DateChooser_02.setBackground(Color.RED);
             } else {
-                DateChooser_01.setBackground(Color.GREEN);
-                DateChooser_02.setBackground(Color.GREEN);
+                if (Obj_Date_01.after(Obj_Date_02)) {
+                    JOptionPane.showMessageDialog(null, "Las Fechas Deben ser Ingresadas de Manera Ascendente.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    DateChooser_01.setCalendar(null);
+                    DateChooser_01.setBackground(Color.RED);
+                } else {
+                    DateChooser_01.setBackground(Color.GREEN);
+                    DateChooser_02.setBackground(Color.GREEN);
 
-                SimpleDateFormat Obj_SimpleDateFormat_01 = new SimpleDateFormat("dd/MM/yyyy");
-                String Fecha_Boleta_Venta_Inicial = Obj_SimpleDateFormat_01.format(Obj_Date_01);
-                SimpleDateFormat Obj_SimpleDateFormat_02 = new SimpleDateFormat("dd/MM/yyyy");
-                String Fecha_Boleta_Venta_Final = Obj_SimpleDateFormat_02.format(Obj_Date_02);
+                    SimpleDateFormat Obj_SimpleDateFormat_01 = new SimpleDateFormat("dd/MM/yyyy");
+                    String Fecha_Boleta_Venta_Inicial = Obj_SimpleDateFormat_01.format(Obj_Date_01);
+                    SimpleDateFormat Obj_SimpleDateFormat_02 = new SimpleDateFormat("dd/MM/yyyy");
+                    String Fecha_Boleta_Venta_Final = Obj_SimpleDateFormat_02.format(Obj_Date_02);
 
-                try {
-                    ArrayList<ArrayList<Object>> Obj_ArrayList_ArrayList_Object = Obj_Controlador_Boleta_Venta.ArrayList_ArrayList_Object(Fecha_Boleta_Venta_Inicial, Fecha_Boleta_Venta_Final);
+                    try {
+                        ArrayList<ArrayList<Object>> Obj_ArrayList_ArrayList_Object = Obj_Controlador_Boleta_Venta.ArrayList_ArrayList_Object_01(Fecha_Boleta_Venta_Inicial, Fecha_Boleta_Venta_Final);
 
-                    DefaultCategoryDataset Obj_DefaultCategoryDataset = new DefaultCategoryDataset();
+                        DefaultCategoryDataset Obj_DefaultCategoryDataset = new DefaultCategoryDataset();
 
-                    for (int i = 0; i < Obj_ArrayList_ArrayList_Object.size(); i++) {
-                        Obj_DefaultCategoryDataset.setValue((int) (Obj_ArrayList_ArrayList_Object.get(i)).get(1), "Sell_Number", (String) (Obj_ArrayList_ArrayList_Object.get(i)).get(0));
+                        for (int i = 0; i < Obj_ArrayList_ArrayList_Object.size(); i++) {
+                            Obj_DefaultCategoryDataset.setValue((int) (Obj_ArrayList_ArrayList_Object.get(i)).get(1), "Sell_Number", (String) (Obj_ArrayList_ArrayList_Object.get(i)).get(0));
+                        }
+
+                        JFreeChart Obj_JFreeChart = ChartFactory.createBarChart("Sell_Graphic", "Sell_Date", "Sell_Number", Obj_DefaultCategoryDataset, PlotOrientation.VERTICAL, true, true, false);
+
+                        CategoryPlot Obj_CategoryPlot = Obj_JFreeChart.getCategoryPlot();
+                        BarRenderer Obj_BarRenderer = (BarRenderer) Obj_CategoryPlot.getRenderer();
+                        Color Obj_Color = new Color(153, 204, 255);
+                        Obj_BarRenderer.setSeriesPaint(0, Obj_Color);
+
+                        ChartPanel Obj_ChartPanel = new ChartPanel(Obj_JFreeChart);
+                        Obj_ChartPanel.setMouseWheelEnabled(true);
+                        Obj_ChartPanel.setPreferredSize(new Dimension(560, 420));
+
+                        Panel_03.setLayout(new BorderLayout());
+                        Panel_03.add(Obj_ChartPanel, BorderLayout.NORTH);
+
+                        pack();
+                        repaint();
+                    } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {
+                        Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException.getMessage());
                     }
-
-                    JFreeChart Obj_JFreeChart = ChartFactory.createBarChart("Sell_Graphic", "Sell_Date", "Sell_Number", Obj_DefaultCategoryDataset, PlotOrientation.VERTICAL, true, true, false);
-
-                    CategoryPlot Obj_CategoryPlot = Obj_JFreeChart.getCategoryPlot();
-                    BarRenderer Obj_BarRenderer = (BarRenderer) Obj_CategoryPlot.getRenderer();
-                    Color Obj_Color = new Color(153, 204, 255);
-                    Obj_BarRenderer.setSeriesPaint(0, Obj_Color);
-
-                    ChartPanel Obj_ChartPanel = new ChartPanel(Obj_JFreeChart);
-                    Obj_ChartPanel.setMouseWheelEnabled(true);
-                    Obj_ChartPanel.setPreferredSize(new Dimension(560, 400));
-
-                    Panel_03.setLayout(new BorderLayout());
-                    Panel_03.add(Obj_ChartPanel, BorderLayout.NORTH);
-
-                    pack();
-                    repaint();
-                } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {
-                    Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException.getMessage());
                 }
             }
         }
     }//GEN-LAST:event_Button_01ActionPerformed
 
+    private void Button_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_02ActionPerformed
+        // TODO add your handling code here:
+        Date Obj_Date_01 = DateChooser_01.getDate();
+        Date Obj_Date_02 = DateChooser_02.getDate();
+
+        if (Obj_Date_01 == null) {
+            JOptionPane.showMessageDialog(null, "Campo Requerido: Fecha Inicial.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            DateChooser_01.setBackground(Color.RED);
+        } else {
+            if (Obj_Date_02 == null) {
+                JOptionPane.showMessageDialog(null, "Campo Requerido: Fecha Final.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                DateChooser_02.setBackground(Color.RED);
+            } else {
+                if (Obj_Date_01.after(Obj_Date_02)) {
+                    JOptionPane.showMessageDialog(null, "Las Fechas Deben ser Ingresadas de Manera Ascendente.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    DateChooser_01.setCalendar(null);
+                    DateChooser_01.setBackground(Color.RED);
+                } else {
+                    DateChooser_01.setBackground(Color.GREEN);
+                    DateChooser_02.setBackground(Color.GREEN);
+
+                    SimpleDateFormat Obj_SimpleDateFormat_01 = new SimpleDateFormat("dd/MM/yyyy");
+                    String Fecha_Boleta_Venta_Inicial = Obj_SimpleDateFormat_01.format(Obj_Date_01);
+                    SimpleDateFormat Obj_SimpleDateFormat_02 = new SimpleDateFormat("dd/MM/yyyy");
+                    String Fecha_Boleta_Venta_Final = Obj_SimpleDateFormat_02.format(Obj_Date_02);
+
+                    try {
+                        ArrayList<ArrayList<Object>> Obj_ArrayList_ArrayList_Object = Obj_Controlador_Boleta_Venta.ArrayList_ArrayList_Object_02(Fecha_Boleta_Venta_Inicial, Fecha_Boleta_Venta_Final);
+
+                        if (Obj_ArrayList_ArrayList_Object.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No Existen Datos Informativos Registrados para Generar el Reporte de Ventas.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            String Report_Path = "src//main//java//Report//Sale_Report.jrxml";
+                            JasperReport Obj_JasperReport = JasperCompileManager.compileReport(Report_Path);
+                            Map Obj_Map = new HashMap();
+                            Obj_Map.put("Parameter_01", Fecha_Boleta_Venta_Inicial);
+                            Obj_Map.put("Parameter_02", Fecha_Boleta_Venta_Final);
+                            JasperPrint Obj_JasperPrint = JasperFillManager.fillReport(Obj_JasperReport, Obj_Map, MySQL_Connection.Obj_Connection);
+                            JasperViewer.viewReport(Obj_JasperPrint, false);
+                        }
+                    } catch (SQLException | ClassNotFoundException | JRException Obj_SQLException_ClassNotFoundException_JRException) {
+                        Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException_JRException.getMessage());
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_Button_02ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_01;
+    private javax.swing.JButton Button_02;
     private com.toedter.calendar.JDateChooser DateChooser_01;
     private com.toedter.calendar.JDateChooser DateChooser_02;
     private javax.swing.JLabel Label_01;
