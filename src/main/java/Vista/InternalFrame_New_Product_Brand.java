@@ -370,7 +370,7 @@ public class InternalFrame_New_Product_Brand extends javax.swing.JInternalFrame 
                             Obj_Modelo_Marca_Producto.setTelefono_Marca_Producto(Integer.parseInt(Telefono_Marca_Producto));
                             Obj_Modelo_Marca_Producto.setE_Mail_Marca_Producto(E_Mail_Marca_Producto);
                             Obj_Modelo_Marca_Producto.setDireccion_Marca_Producto(Direccion_Marca_Producto);
-                            Obj_Modelo_Marca_Producto.setEstado_Marca_Producto(true);
+                            Obj_Modelo_Marca_Producto.setEstado_Marca_Producto(false);
                             Obj_Modelo_Marca_Producto.setFecha_Registro_Marca_Producto(Fecha_Registro_Marca_Producto);
 
                             try {

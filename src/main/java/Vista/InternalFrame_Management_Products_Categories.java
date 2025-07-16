@@ -334,7 +334,7 @@ public class InternalFrame_Management_Products_Categories extends javax.swing.JI
 
                     if (Estado_Categoria_Producto.equals("Disponible") == true) {
                         Button_03.setEnabled(true);
-                        Button_04.setEnabled(false);
+                        Button_04.setEnabled(true);
                         Button_04.setText("Eliminar");
                         Button_04.setBackground(Color.RED);
                         TextField_03.setEnabled(true);
@@ -342,7 +342,7 @@ public class InternalFrame_Management_Products_Categories extends javax.swing.JI
                     } else {
                         if (Estado_Categoria_Producto.equals("No Disponible") == true) {
                             Button_03.setEnabled(false);
-                            Button_04.setEnabled(false);
+                            Button_04.setEnabled(true);
                             Button_04.setText("Restaurar");
                             Button_04.setBackground(Color.YELLOW);
                             TextField_03.setEnabled(false);
