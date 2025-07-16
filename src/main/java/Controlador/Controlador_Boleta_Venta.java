@@ -55,14 +55,14 @@ public class Controlador_Boleta_Venta {
     public ArrayList<ArrayList<Object>> ArrayList_ArrayList_Object_01(String Fecha_Boleta_Venta_Inicial, String Fecha_Boleta_Venta_Final) throws SQLException, ClassNotFoundException {
         ArrayList<ArrayList<Object>> Obj_ArrayList_ArrayList_Object = new ArrayList<>();
         try {
-            String MySql_Command = "SELECT Fecha_Boleta_Venta, COUNT(Fecha_Boleta_Venta) AS Sell_Number FROM Tabla_Boleta_Venta WHERE STR_TO_DATE(Fecha_Boleta_Venta, '%d/%m/%Y') BETWEEN STR_TO_DATE('" + Fecha_Boleta_Venta_Inicial + "', '%d/%m/%Y') AND STR_TO_DATE('" + Fecha_Boleta_Venta_Final + "', '%d/%m/%Y') GROUP BY Fecha_Boleta_Venta;";
+            String MySql_Command = "SELECT Fecha_Boleta_Venta, COUNT(Fecha_Boleta_Venta) AS Sale_Number FROM Tabla_Boleta_Venta WHERE STR_TO_DATE(Fecha_Boleta_Venta, '%d/%m/%Y') BETWEEN STR_TO_DATE('" + Fecha_Boleta_Venta_Inicial + "', '%d/%m/%Y') AND STR_TO_DATE('" + Fecha_Boleta_Venta_Final + "', '%d/%m/%Y') GROUP BY Fecha_Boleta_Venta;";
             Obj_Connection = MySQL_Connection.Function_Connection();
             Obj_Statement = Obj_Connection.createStatement();
             Obj_ResultSet = Obj_Statement.executeQuery(MySql_Command);
             while (Obj_ResultSet.next() == true) {
                 ArrayList<Object> Obj_ArrayList_Object = new ArrayList<>();
                 Obj_ArrayList_Object.add(Obj_ResultSet.getString("Fecha_Boleta_Venta"));
-                Obj_ArrayList_Object.add(Obj_ResultSet.getInt("Sell_Number"));
+                Obj_ArrayList_Object.add(Obj_ResultSet.getInt("Sale_Number"));
                 Obj_ArrayList_ArrayList_Object.add(Obj_ArrayList_Object);
             }
         } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {

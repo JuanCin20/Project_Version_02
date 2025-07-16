@@ -35,7 +35,7 @@ import javax.crypto.BadPaddingException;
 public class InternalFrame_New_User extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form InternalFrame_New_Employee
+     * Creates new form InternalFrame_New_User
      */
     public InternalFrame_New_User() {
         initComponents();

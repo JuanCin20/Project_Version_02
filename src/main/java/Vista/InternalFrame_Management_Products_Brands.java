@@ -35,7 +35,7 @@ import java.awt.event.KeyEvent;
 public class InternalFrame_Management_Products_Brands extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form InternalFrame_Management_Employees
+     * Creates new form InternalFrame_Management_Products_Brands
      *
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException

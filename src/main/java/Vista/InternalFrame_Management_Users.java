@@ -45,7 +45,7 @@ import java.awt.event.KeyEvent;
 public class InternalFrame_Management_Users extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form InternalFrame_Management_Employees
+     * Creates new form InternalFrame_Management_Users
      *
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException

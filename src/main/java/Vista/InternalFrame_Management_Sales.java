@@ -15,12 +15,17 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
+import java.net.URI;
+import java.nio.file.Paths;
+import java.io.File;
+import java.awt.Image;
+import javax.imageio.ImageIO;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartFrame;
 import java.awt.Dimension;
-import java.awt.BorderLayout;
 import java.sql.SQLException;
+import java.io.IOException;
 import java.util.logging.Logger;
 import com.mycompany.project_version_02.MySQL_Connection;
 import java.util.logging.Level;
@@ -37,14 +42,14 @@ import net.sf.jasperreports.engine.JRException;
  *
  * @author JuanCin20
  */
-public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
+public class InternalFrame_Management_Sales extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form InternalFrame_Sell_History
+     * Creates new form InternalFrame_Management_Sales
      */
-    public InternalFrame_Management_Sells() {
+    public InternalFrame_Management_Sales() {
         initComponents();
-        this.setTitle("Pc - Factory Desktop App: Sell History");
+        this.setTitle("Pc - Factory Desktop App: Management Sales");
     }
 
     private final Controlador_Boleta_Venta Obj_Controlador_Boleta_Venta = new Controlador_Boleta_Venta();
@@ -66,7 +71,6 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
         Panel_02 = new javax.swing.JPanel();
         Button_01 = new javax.swing.JButton();
         Button_02 = new javax.swing.JButton();
-        Panel_03 = new javax.swing.JPanel();
         Label_01 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -167,24 +171,8 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
 
         getContentPane().add(Panel_02, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, 90));
 
-        Panel_03.setBackground(new java.awt.Color(102, 102, 102));
-        Panel_03.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout Panel_03Layout = new javax.swing.GroupLayout(Panel_03);
-        Panel_03.setLayout(Panel_03Layout);
-        Panel_03Layout.setHorizontalGroup(
-            Panel_03Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
-        );
-        Panel_03Layout.setVerticalGroup(
-            Panel_03Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(Panel_03, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 420));
-
         Label_01.setIcon(new ImageIcon("src//main//java//Imágenes//Wallpaper_04.png"));
-        getContentPane().add(Label_01, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 560));
+        getContentPane().add(Label_01, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -218,30 +206,45 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
                     try {
                         ArrayList<ArrayList<Object>> Obj_ArrayList_ArrayList_Object = Obj_Controlador_Boleta_Venta.ArrayList_ArrayList_Object_01(Fecha_Boleta_Venta_Inicial, Fecha_Boleta_Venta_Final);
 
-                        DefaultCategoryDataset Obj_DefaultCategoryDataset = new DefaultCategoryDataset();
+                        if (Obj_ArrayList_ArrayList_Object.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No Existen Datos Informativos Registrados para Generar el Gráfico de Ventas.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            DefaultCategoryDataset Obj_DefaultCategoryDataset = new DefaultCategoryDataset();
 
-                        for (int i = 0; i < Obj_ArrayList_ArrayList_Object.size(); i++) {
-                            Obj_DefaultCategoryDataset.setValue((int) (Obj_ArrayList_ArrayList_Object.get(i)).get(1), "Sell_Number", (String) (Obj_ArrayList_ArrayList_Object.get(i)).get(0));
+                            for (int i = 0; i < Obj_ArrayList_ArrayList_Object.size(); i++) {
+                                Obj_DefaultCategoryDataset.setValue((int) (Obj_ArrayList_ArrayList_Object.get(i)).get(1), "Sale_Number", (String) (Obj_ArrayList_ArrayList_Object.get(i)).get(0));
+                            }
+
+                            JFreeChart Obj_JFreeChart = ChartFactory.createBarChart("Sale_Graphic", "Sale_Date", "Sale_Number", Obj_DefaultCategoryDataset, PlotOrientation.VERTICAL, true, true, false);
+
+                            URI Obj_URI_01 = (Paths.get("src//main//java//Imágenes//Wallpaper_03.png")).toUri();
+                            File Obj_File_01 = new File(Obj_URI_01);
+                            Image Obj_Image_01 = ImageIO.read(Obj_File_01);
+                            Obj_JFreeChart.setBackgroundImage(Obj_Image_01);
+
+                            Obj_JFreeChart.getTitle().setPaint(Color.BLACK);
+
+                            CategoryPlot Obj_CategoryPlot = Obj_JFreeChart.getCategoryPlot();
+
+                            Obj_CategoryPlot.setRangeGridlinePaint(Color.BLUE);
+
+                            BarRenderer Obj_BarRenderer = (BarRenderer) Obj_CategoryPlot.getRenderer();
+                            Color Obj_Color = new Color(153, 204, 255);
+                            Obj_BarRenderer.setSeriesPaint(0, Obj_Color);
+
+                            ChartFrame Obj_ChartFrame = new ChartFrame("Pc - Factory Desktop App: Sale Graphic", Obj_JFreeChart);
+
+                            // Obj_ChartFrame.setLocationRelativeTo(null);
+                            URI Obj_URI_02 = (Paths.get("src//main//java//Imágenes//ToolKit.png")).toUri();
+                            File Obj_File_02 = new File(Obj_URI_02);
+                            Image Obj_Image_02 = ImageIO.read(Obj_File_02);
+                            Obj_ChartFrame.setIconImage(Obj_Image_02);
+
+                            Obj_ChartFrame.setSize(new Dimension(450, 350));
+                            Obj_ChartFrame.setVisible(true);
                         }
-
-                        JFreeChart Obj_JFreeChart = ChartFactory.createBarChart("Sell_Graphic", "Sell_Date", "Sell_Number", Obj_DefaultCategoryDataset, PlotOrientation.VERTICAL, true, true, false);
-
-                        CategoryPlot Obj_CategoryPlot = Obj_JFreeChart.getCategoryPlot();
-                        BarRenderer Obj_BarRenderer = (BarRenderer) Obj_CategoryPlot.getRenderer();
-                        Color Obj_Color = new Color(153, 204, 255);
-                        Obj_BarRenderer.setSeriesPaint(0, Obj_Color);
-
-                        ChartPanel Obj_ChartPanel = new ChartPanel(Obj_JFreeChart);
-                        Obj_ChartPanel.setMouseWheelEnabled(true);
-                        Obj_ChartPanel.setPreferredSize(new Dimension(560, 420));
-
-                        Panel_03.setLayout(new BorderLayout());
-                        Panel_03.add(Obj_ChartPanel, BorderLayout.NORTH);
-
-                        pack();
-                        repaint();
-                    } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {
-                        Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException.getMessage());
+                    } catch (SQLException | ClassNotFoundException | IOException Obj_SQLException_ClassNotFoundException_IOException) {
+                        Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, Obj_SQLException_ClassNotFoundException_IOException.getMessage());
                     }
                 }
             }
@@ -306,6 +309,5 @@ public class InternalFrame_Management_Sells extends javax.swing.JInternalFrame {
     private javax.swing.JLabel Label_03;
     private javax.swing.JPanel Panel_01;
     private javax.swing.JPanel Panel_02;
-    private javax.swing.JPanel Panel_03;
     // End of variables declaration//GEN-END:variables
 }

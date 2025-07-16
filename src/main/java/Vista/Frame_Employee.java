@@ -146,9 +146,9 @@ public class Frame_Employee extends javax.swing.JFrame {
 
     private void MenuItem_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_02ActionPerformed
         // TODO add your handling code here:
-        InternalFrame_New_Sell Obj_InternalFrame_New_Sell = null;
+        InternalFrame_New_Sale Obj_InternalFrame_New_Sell = null;
         try {
-            Obj_InternalFrame_New_Sell = new InternalFrame_New_Sell();
+            Obj_InternalFrame_New_Sell = new InternalFrame_New_Sale();
         } catch (SQLException | ClassNotFoundException Obj_SQLException_ClassNotFoundException) {
             Logger.getLogger(MySQL_Connection.class.getName()).log(Level.SEVERE, null, Obj_SQLException_ClassNotFoundException.getMessage());
         }

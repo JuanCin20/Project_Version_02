@@ -24,7 +24,7 @@ import Modelo.Modelo_Categoria_Producto;
 public class InternalFrame_New_Product_Category extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form InternalFrame_New__Product_Cateogry
+     * Creates new form InternalFrame_New_Product_Category
      */
     public InternalFrame_New_Product_Category() {
         initComponents();

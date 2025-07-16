@@ -45,17 +45,17 @@ import net.sf.jasperreports.engine.JRException;
  *
  * @author JuanCin20
  */
-public class InternalFrame_New_Sell extends javax.swing.JInternalFrame {
+public class InternalFrame_New_Sale extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Frame_Venta
+     * Creates new form InternalFrame_New_Sale
      *
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
      */
-    public InternalFrame_New_Sell() throws SQLException, ClassNotFoundException {
+    public InternalFrame_New_Sale() throws SQLException, ClassNotFoundException {
         initComponents();
-        this.setTitle("Pc - Factory Desktop App: New Sell");
+        this.setTitle("Pc - Factory Desktop App: New Sale");
         this.Initialize_Table();
         this.Show_Table_Header();
         this.Show_Table_Content_02();
